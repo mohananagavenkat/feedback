@@ -31,6 +31,7 @@ const routes = require("./routes");
 require("./models");
 require("./auth/googleAuth");
 
+app.set("trust proxy", 1);
 app.use(
   cookieSession({
     maxAge: 10 * 24 * 60 * 60 * 1000,
