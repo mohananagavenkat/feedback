@@ -19,7 +19,14 @@ router.get(
 );
 
 router.get("/google/callback", passport.authenticate("google"), (req, res) => {
-  res.redirect("/profile");
+  return res.redirect("/");
+});
+
+router.get("/logout", async (req, res) => {
+  await req.logout();
+  req.session = null;
+  req.sessionOptions.maxAge = 0;
+  return res.redirect("/");
 });
 
 module.exports = router;

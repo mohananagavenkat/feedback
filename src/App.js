@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchProfile } from "./actions/authActions";
+import Header from "./components/Header";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("App Constructor");
+  }
+  componentDidMount() {
+    console.log("[App COmponent] ComponentDidMount");
+    this.props.fetchProfileAction();
+  }
+  render() {
+    return (
+      <Router>
+        <Switch>
+          {/* <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route path="/services" exact component={Services} />
+          <Route path="/contact" exact component={Contact} /> */}
+        </Switch>
+        <ToastContainer />
+        <Header></Header>
+      </Router>
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  console.log("[App Component]", "Mapping Dispatch To Props");
+  return {
+    fetchProfileAction: () => dispatch(fetchProfile())
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);

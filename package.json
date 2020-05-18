@@ -6,15 +6,32 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "cookie-session": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "install": "^0.13.0",
     "mongoose": "^5.9.10",
+    "npm": "^6.14.4",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-loader": "^2.4.7",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-stripe-checkout": "^2.6.3",
+    "react-toastify": "^5.5.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "stripe": "^8.49.0"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.3",
+    "concurrently": "^5.2.0"
   },
   "engines": {
     "npm": "6.9.0",
@@ -25,8 +42,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev-app": "react-scripts start",
-    "dev-api": "nodemon server/app.js"
+    "dev-client": "react-scripts start",
+    "dev-api": "nodemon server/app.js",
+    "dev": "concurrently \" npm run dev-client \" \" npm run dev-api \" "
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  min-height: 60px;
+  background: rgb(89, 22, 221);
+  box-shadow: 0px 15px 20px 5px rgba(0, 0, 0, 0.23);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-name {
+  font-weight: bold;
+  color: #fff;
+  padding-left: 1rem;
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+  color: #fff;
+}
+
+.header nav ul li {
+  margin: auto 10px;
+}
+
+.header nav ul button {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
+  /* min-height: 50px; */
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}

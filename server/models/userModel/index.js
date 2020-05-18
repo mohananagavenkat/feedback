@@ -6,6 +6,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   picture: String,
+  credits: { type: Number, default: 0 },
   careatedAt: { type: Date, default: new Date().getTime() },
   updatedAt: { type: Date, default: new Date().getTime() }
 });

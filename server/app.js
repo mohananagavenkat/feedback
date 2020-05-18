@@ -4,6 +4,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
+const bodyParser = require("body-parser");
 
 const app = express();
 if (process.env.NODE_ENV !== "production") {
@@ -35,13 +36,14 @@ app.set("trust proxy", 1);
 app.use(
   cookieSession({
     maxAge: 10 * 24 * 60 * 60 * 1000,
-    keys: [process.env.COOKIE_KEY],
-    secureProxy: true
+    keys: [process.env.COOKIE_KEY]
   })
 );
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(routes);
+app.use("/api", routes);
 
 app.listen(PORT, () => {
   console.log(`API is working on Port Number ${PORT}`);
